@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.Rolerightreltion" table="rolerightreltion" catalog="woemobile_db" optimistic-lock="version">
+        <id name="idRoleRightReltion" type="int">
+            <column name="idRoleRightReltion" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="rights" class="com.jxust.svsh.entity.Rights" fetch="select">
+            <column name="right_id" not-null="true">
+                <comment>&#200;&#168;&#207;&#222;</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="role" class="com.jxust.svsh.entity.Role" fetch="select">
+            <column name="role_id" not-null="true">
+                <comment>&#189;&#199;&#201;&#171;</comment>
+            </column>
+        </many-to-one>
+        <property name="rightType" type="int">
+            <column name="right_type" not-null="true">
+                <comment>0 &#191;&#201;&#183;&#195;&#206;&#202;&#163;&#172;1 &#191;&#201;&#202;&#218;&#200;&#168;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

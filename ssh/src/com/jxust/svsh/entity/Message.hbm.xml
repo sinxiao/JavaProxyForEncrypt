@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.Message" table="message" catalog="woemobile_db" optimistic-lock="version">
+        <id name="mid" type="java.lang.Integer">
+            <column name="mid" />
+            <generator class="identity" />
+        </id>
+        <property name="from" type="java.lang.Integer">
+            <column name="from" />
+        </property>
+        <property name="to" type="java.lang.Integer">
+            <column name="to" />
+        </property>
+        <property name="text" type="string">
+            <column name="text" length="65535" />
+        </property>
+        <property name="issystem" type="java.lang.Integer">
+            <column name="issystem" />
+        </property>
+        <property name="isread" type="java.lang.Integer">
+            <column name="isread" />
+        </property>
+        <property name="sendtime" type="string">
+            <column name="sendtime" length="45" />
+        </property>
+        <property name="readtime" type="string">
+            <column name="readtime" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.Information" table="information" catalog="woemobile_db" optimistic-lock="version">
+        <id name="idinformation" type="java.lang.Integer">
+            <column name="idinformation" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="euserByFromId" class="com.jxust.svsh.entity.Euser" fetch="select">
+            <column name="from_id" />
+        </many-to-one>
+        <many-to-one name="euserByToId" class="com.jxust.svsh.entity.Euser" fetch="select">
+            <column name="to_id" />
+        </many-to-one>
+        <many-to-one name="manager" class="com.jxust.svsh.entity.Manager" fetch="select">
+            <column name="manager_id">
+                <comment>&#185;&#220;&#192;&#237;&#212;&#177;id</comment>
+            </column>
+        </many-to-one>
+        <property name="content" type="string">
+            <column name="content" length="65535" />
+        </property>
+        <property name="readed" type="java.lang.Integer">
+            <column name="readed">
+                <comment>
+                &#202;&#199;&#183;&#241;&#177;&#187;&#182;&#193;&#185;&#253;&#163;&#172;&#182;&#193;&#185;&#253;&#206;&#170;1&#163;&#172;&#206;&#180;&#182;&#193;&#185;&#253;&#202;&#199;0</comment>
+            </column>
+        </property>
+        <property name="genTime" type="timestamp">
+            <column name="gen_time" length="19" />
+        </property>
+        <property name="inforType" type="java.lang.Integer">
+            <column name="infor_type">
+                <comment>
+                &#207;&#251;&#207;&#162;&#192;&#224;&#177;&#240;&#163;&#172;1&#206;&#170;&#184;&#246;&#200;&#203;&#207;&#251;&#207;&#162;&#163;&#172;2&#206;&#170;&#207;&#181;&#205;&#179;&#207;&#251;&#207;&#162;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

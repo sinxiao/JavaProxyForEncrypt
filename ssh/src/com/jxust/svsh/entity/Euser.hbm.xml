@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.Euser" table="euser" catalog="woemobile_db" optimistic-lock="version">
+        <id name="uid" type="java.lang.Integer">
+            <column name="uid" />
+            <generator class="identity" />
+        </id>
+        <property name="inEmail" type="string">
+            <column name="in_email" not-null="true" />
+        </property>
+        <property name="inPwd" type="string">
+            <column name="in_pwd" not-null="true" />
+        </property>
+        <property name="nickName" type="string">
+            <column name="nick_name" not-null="true" />
+        </property>
+        <property name="phone" type="string">
+            <column name="phone" />
+        </property>
+        <property name="islock" type="java.lang.Integer">
+            <column name="islock" />
+        </property>
+        <property name="createtime" type="string">
+            <column name="createtime" length="16777215" />
+        </property>
+        <property name="infor" type="string">
+            <column name="infor" />
+        </property>
+        <set name="euserDetails" table="euser_detail" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" />
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.EuserDetail" />
+        </set>
+        <set name="friendListUsers" table="friend_list_user" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="uid" />
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.FriendListUser" />
+        </set>
+        <set name="twitterLoves" table="twitter_love" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="euser_id" not-null="true" />
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.TwitterLove" />
+        </set>
+        <set name="imageses" table="images" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="uid" />
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.Images" />
+        </set>
+        <set name="informationsForFromId" table="information" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="from_id" />
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.Information" />
+        </set>
+        <set name="longTwitters" table="long_twitter" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="uid" />
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.LongTwitter" />
+        </set>
+        <set name="managers" table="manager" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id">
+                    <comment>
+                    &#185;&#220;&#192;&#237;&#212;&#177;&#212;&#218;&#207;&#181;&#205;&#179;&#214;&#208;&#181;&#196;&#214;&#208;&#181;&#196;&#211;&#195;&#187;&#167;id&#163;&#172;&#185;&#220;&#192;&#237;&#212;&#177;&#163;&#168;&#186;&#243;&#204;&#168;&#163;&#169;&#186;&#205;&#211;&#195;&#187;&#167;&#177;&#237;&#163;&#168;&#199;&#176;&#204;&#168;&#183;&#254;&#206;&#241;&#163;&#169;&#202;&#199;&#182;&#192;&#193;&#162;&#181;&#196;&#161;&#163;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.Manager" />
+        </set>
+        <set name="informationsForToId" table="information" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="to_id" />
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.Information" />
+        </set>
+        <set name="traceses" table="traces" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="uid" />
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.Traces" />
+        </set>
+        <set name="locationses" table="locations" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="uid" />
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.Locations" />
+        </set>
+        <set name="medias" table="media" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="uid" />
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.Media" />
+        </set>
+        <set name="twitterComments" table="twitter_comment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="uuser_id" />
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.TwitterComment" />
+        </set>
+        <set name="twitters" table="twitter" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ower_id_twitter">
+                    <comment>&#177;&#187;&#198;&#192;&#194;&#219;&#181;&#196;&#208;&#196;&#199;&#233;id</comment>
+                </column>
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.Twitter" />
+        </set>
+        <set name="newsComments" table="news_comment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" />
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.NewsComment" />
+        </set>
+        <set name="friendLists" table="friend_list" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="u_id" not-null="true">
+                    <comment>&#211;&#195;&#187;&#167;&#177;&#224;&#186;&#197;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.FriendList" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.Albums" table="albums" catalog="woemobile_db" optimistic-lock="version">
+        <id name="albumId" type="java.lang.Integer">
+            <column name="album_id" />
+            <generator class="identity" />
+        </id>
+        <property name="nameEg" type="string">
+            <column name="name_eg" length="45" />
+        </property>
+        <property name="nameCh" type="string">
+            <column name="name_ch" length="45" />
+        </property>
+        <property name="artistId" type="java.lang.Integer">
+            <column name="artist_id" />
+        </property>
+        <property name="pubDate" type="string">
+            <column name="pub_date" length="45" />
+        </property>
+        <set name="musicses" table="musics" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="abum_id" />
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.Musics" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.Item" table="item" catalog="woemobile_db" optimistic-lock="version">
+        <id name="iditem" type="java.lang.Integer">
+            <column name="iditem" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="item" class="com.jxust.svsh.entity.Item" fetch="select">
+            <column name="item_parent">
+                <comment>&#184;&#184;&#177;&#234;&#204;&#226;</comment>
+            </column>
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" length="450" />
+        </property>
+        <property name="ename" type="string">
+            <column name="ename" length="45">
+                <comment>&#188;&#242;&#181;&#165;&#195;&#251;&#215;&#214;</comment>
+            </column>
+        </property>
+        <property name="showathome" type="java.lang.Integer">
+            <column name="showathome">
+                <comment>&#207;&#212;&#202;&#190;&#212;&#218;&#214;&#247;&#210;&#179;</comment>
+            </column>
+        </property>
+        <set name="newses" table="news" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="itemid">
+                    <comment>&#192;&#184;&#196;&#191;id</comment>
+                </column>
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.News" />
+        </set>
+        <set name="items" table="item" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="item_parent">
+                    <comment>&#184;&#184;&#177;&#234;&#204;&#226;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.Item" />
+        </set>
+    </class>
+</hibernate-mapping>

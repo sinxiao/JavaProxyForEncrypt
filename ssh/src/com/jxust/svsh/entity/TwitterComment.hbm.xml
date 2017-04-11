@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.TwitterComment" table="twitter_comment" catalog="woemobile_db" optimistic-lock="version">
+        <id name="idtwitterComment" type="java.lang.Integer">
+            <column name="idtwitter_comment" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="euser" class="com.jxust.svsh.entity.Euser" fetch="select">
+            <column name="uuser_id" />
+        </many-to-one>
+        <many-to-one name="twitter" class="com.jxust.svsh.entity.Twitter" fetch="select">
+            <column name="twitter_id" not-null="true" />
+        </many-to-one>
+        <property name="comment" type="string">
+            <column name="comment" length="450" not-null="true">
+                <comment>&#198;&#192;&#194;&#219;&#196;&#218;&#200;&#221;</comment>
+            </column>
+        </property>
+        <property name="genTime" type="timestamp">
+            <column name="gen_time" length="19">
+                <comment>&#183;&#162;&#178;&#188;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

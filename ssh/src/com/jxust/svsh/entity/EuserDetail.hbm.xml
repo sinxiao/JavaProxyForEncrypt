@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.EuserDetail" table="euser_detail" catalog="woemobile_db" optimistic-lock="version">
+        <id name="idUserDetail" type="java.lang.Integer">
+            <column name="id_User_detail" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="euser" class="com.jxust.svsh.entity.Euser" fetch="select">
+            <column name="user_id" />
+        </many-to-one>
+        <property name="qqNo" type="string">
+            <column name="qq_no" length="12" />
+        </property>
+        <property name="imei" type="string">
+            <column name="imei" length="45" />
+        </property>
+        <property name="cellPhoneNo" type="string">
+            <column name="cell_phone_no" length="45" />
+        </property>
+        <property name="contact" type="java.lang.Integer">
+            <column name="contact" />
+        </property>
+        <property name="location" type="java.lang.Integer">
+            <column name="location" />
+        </property>
+        <property name="gender" type="java.lang.Integer">
+            <column name="gender">
+                <comment>&#208;&#212;&#177;&#240; 1 &#206;&#170; &#196;&#208; 0 &#206;&#170;&#197;&#174;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.News" table="news" catalog="woemobile_db" optimistic-lock="version">
+        <id name="idnews" type="java.lang.Integer">
+            <column name="idnews" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="item" class="com.jxust.svsh.entity.Item" fetch="select">
+            <column name="itemid">
+                <comment>&#192;&#184;&#196;&#191;id</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="manager" class="com.jxust.svsh.entity.Manager" fetch="select">
+            <column name="writer">
+                <comment>&#183;&#162;&#178;&#188;&#213;&#223;</comment>
+            </column>
+        </many-to-one>
+        <property name="intro" type="string">
+            <column name="intro" length="700">
+                <comment>&#208;&#194;&#206;&#197;&#188;&#242;&#210;&#170;</comment>
+            </column>
+        </property>
+        <property name="genTime" type="timestamp">
+            <column name="gen_time" length="19">
+                <comment>&#183;&#162;&#178;&#188;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="title" type="string">
+            <column name="title" length="450">
+                <comment>&#177;&#234;&#204;&#226;</comment>
+            </column>
+        </property>
+        <property name="content" type="string">
+            <column name="content" length="65535">
+                <comment>&#213;&#253;&#206;&#196;</comment>
+            </column>
+        </property>
+        <property name="passcheked" type="java.lang.Integer">
+            <column name="passcheked">
+                <comment>&#202;&#199;&#183;&#241;&#205;&#168;&#185;&#253;&#201;&#243;&#186;&#203;</comment>
+            </column>
+        </property>
+        <property name="keyword" type="string">
+            <column name="keyword" length="450">
+                <comment>&#185;&#216;&#188;&#252;&#180;&#202;</comment>
+            </column>
+        </property>
+        <property name="defaultNews" type="java.lang.Integer">
+            <column name="default_news">
+                <comment>&#202;&#199;&#183;&#241;&#205;&#198;&#188;&#246;&#181;&#189;&#214;&#247;&#210;&#179;</comment>
+            </column>
+        </property>
+        <property name="clicked" type="java.lang.Integer">
+            <column name="clicked">
+                <comment>&#181;&#165;&#187;&#247;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="newsUrl" type="string">
+            <column name="news_url" length="450">
+                <comment>&#208;&#194;&#206;&#197;&#193;&#180;&#189;&#211;</comment>
+            </column>
+        </property>
+        <property name="imageUrl" type="string">
+            <column name="image_url" length="450">
+                <comment>&#208;&#194;&#206;&#197;&#214;&#247;&#205;&#188;</comment>
+            </column>
+        </property>
+        <property name="commentSum" type="java.lang.Integer">
+            <column name="comment_sum">
+                <comment>&#198;&#192;&#194;&#219;&#215;&#220;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="verify" type="java.lang.Integer">
+            <column name="verify" />
+        </property>
+        <property name="verifyId" type="java.lang.Integer">
+            <column name="verify_id" />
+        </property>
+        <property name="verifyDate" type="timestamp">
+            <column name="verify_date" length="19" />
+        </property>
+        <set name="newsComments" table="news_comment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="news_id" />
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.NewsComment" />
+        </set>
+    </class>
+</hibernate-mapping>

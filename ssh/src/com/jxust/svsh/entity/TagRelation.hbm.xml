@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.TagRelation" table="`tag-relation`" catalog="woemobile_db" optimistic-lock="version">
+        <composite-id name="id" class="com.jxust.svsh.entity.TagRelationId">
+            <key-property name="twitterid" type="java.lang.Integer">
+                <column name="twitterid" />
+            </key-property>
+            <key-property name="media" type="java.lang.Integer">
+                <column name="media" />
+            </key-property>
+            <key-property name="dataid" type="java.lang.Integer">
+                <column name="dataid" />
+            </key-property>
+            <key-property name="tagid" type="java.lang.Integer">
+                <column name="tagid" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

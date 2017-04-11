@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.NewsComment" table="news_comment" catalog="woemobile_db" optimistic-lock="version">
+        <id name="idnewsComment" type="java.lang.Integer">
+            <column name="idnews_comment" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="euser" class="com.jxust.svsh.entity.Euser" fetch="select">
+            <column name="user_id" />
+        </many-to-one>
+        <many-to-one name="news" class="com.jxust.svsh.entity.News" fetch="select">
+            <column name="news_id" />
+        </many-to-one>
+        <property name="commentName" type="string">
+            <column name="comment_name" length="45" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" />
+        </property>
+        <property name="content" type="string">
+            <column name="content" length="65535" />
+        </property>
+        <property name="genTime" type="timestamp">
+            <column name="gen_time" length="19" />
+        </property>
+        <property name="CType" type="java.lang.Integer">
+            <column name="c_type">
+                <comment>
+                &#190;&#205;&#202;&#199;&#191;&#201;&#210;&#212;&#197;&#208;&#182;&#207;&#202;&#199;&#182;&#212;&#208;&#194;&#206;&#197;&#181;&#196;&#198;&#192;&#194;&#219;&#163;&#172;&#187;&#185;&#202;&#199;&#182;&#212;&#205;&#188;&#198;&#172;&#181;&#196;&#198;&#192;&#194;&#219;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

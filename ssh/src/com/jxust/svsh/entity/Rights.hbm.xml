@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.Rights" table="rights" catalog="woemobile_db" optimistic-lock="version">
+        <id name="idRights" type="java.lang.Integer">
+            <column name="idRights" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="rights" class="com.jxust.svsh.entity.Rights" fetch="select">
+            <column name="parent_r_id">
+                <comment>&#184;&#184;&#200;&#168;&#207;&#222;</comment>
+            </column>
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" length="45">
+                <comment>&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="url" type="string">
+            <column name="url" length="450">
+                <comment>&#178;&#217;&#215;&#247;&#194;&#183;&#190;&#182;</comment>
+            </column>
+        </property>
+        <set name="rightses" table="rights" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="parent_r_id">
+                    <comment>&#184;&#184;&#200;&#168;&#207;&#222;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.Rights" />
+        </set>
+        <set name="rolerightreltions" table="rolerightreltion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="right_id" not-null="true">
+                    <comment>&#200;&#168;&#207;&#222;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.Rolerightreltion" />
+        </set>
+    </class>
+</hibernate-mapping>

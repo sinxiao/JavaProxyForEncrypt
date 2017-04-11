@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.Tags" table="tags" catalog="woemobile_db" optimistic-lock="version">
+        <id name="tagid" type="java.lang.Integer">
+            <column name="tagid" />
+            <generator class="identity" />
+        </id>
+        <property name="tag" type="string">
+            <column name="TAG" length="45" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" />
+        </property>
+        <property name="addUid" type="string">
+            <column name="add_uid" length="45" />
+        </property>
+        <property name="addtime" type="string">
+            <column name="addtime" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

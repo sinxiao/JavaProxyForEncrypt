@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.Role" table="role" catalog="woemobile_db" optimistic-lock="version">
+        <id name="idRole" type="java.lang.Integer">
+            <column name="idRole" />
+            <generator class="identity" />
+        </id>
+        <property name="rname" type="string">
+            <column name="rname" length="45" not-null="true">
+                <comment>&#189;&#199;&#201;&#171;&#195;&#251;&#215;&#214;</comment>
+            </column>
+        </property>
+        <property name="desription" type="string">
+            <column name="desription" length="65535">
+                <comment>&#195;&#232;&#202;&#246;</comment>
+            </column>
+        </property>
+        <property name="parentRId" type="string">
+            <column name="parent_r_id" length="45">
+                <comment>&#184;&#184;&#189;&#199;&#201;&#171;Id</comment>
+            </column>
+        </property>
+        <property name="genTime" type="timestamp">
+            <column name="gen_time" length="19">
+                <comment>&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <set name="managers" table="manager" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="role_id">
+                    <comment>&#189;&#199;&#201;&#171;&#177;&#237;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.Manager" />
+        </set>
+        <set name="rolerightreltions" table="rolerightreltion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="role_id" not-null="true">
+                    <comment>&#189;&#199;&#201;&#171;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.Rolerightreltion" />
+        </set>
+    </class>
+</hibernate-mapping>

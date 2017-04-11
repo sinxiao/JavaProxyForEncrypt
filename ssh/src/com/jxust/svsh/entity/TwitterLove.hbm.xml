@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.TwitterLove" table="twitter_love" catalog="woemobile_db" optimistic-lock="version">
+        <id name="idtwitterLove" type="int">
+            <column name="idtwitter_love" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="euser" class="com.jxust.svsh.entity.Euser" fetch="select">
+            <column name="euser_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="twitter" class="com.jxust.svsh.entity.Twitter" fetch="select">
+            <column name="twitter_id" not-null="true" />
+        </many-to-one>
+        <property name="content" type="string">
+            <column name="content" length="450" />
+        </property>
+        <property name="genTime" type="timestamp">
+            <column name="gen_time" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

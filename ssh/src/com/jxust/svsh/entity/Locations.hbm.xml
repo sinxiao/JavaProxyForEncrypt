@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.Locations" table="locations" catalog="woemobile_db" optimistic-lock="version">
+        <id name="idlocations" type="java.lang.Integer">
+            <column name="idlocations" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="euser" class="com.jxust.svsh.entity.Euser" fetch="select">
+            <column name="uid" />
+        </many-to-one>
+        <many-to-one name="traces" class="com.jxust.svsh.entity.Traces" fetch="select">
+            <column name="trace_id" />
+        </many-to-one>
+        <property name="longitude" type="string">
+            <column name="longitude" length="45" not-null="true" />
+        </property>
+        <property name="latitude" type="string">
+            <column name="latitude" length="45" not-null="true" />
+        </property>
+        <property name="datetime" type="string">
+            <column name="datetime" length="45" />
+        </property>
+        <property name="demo" type="string">
+            <column name="demo" length="65535" />
+        </property>
+        <property name="data1" type="string">
+            <column name="data1" length="450" />
+        </property>
+        <property name="data2" type="string">
+            <column name="data2" length="450" />
+        </property>
+        <property name="lname" type="string">
+            <column name="lname" length="450" />
+        </property>
+        <set name="imageses" table="images" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="location_id" />
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.Images" />
+        </set>
+    </class>
+</hibernate-mapping>

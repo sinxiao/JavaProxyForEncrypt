@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.Manager" table="manager" catalog="woemobile_db" optimistic-lock="version">
+        <id name="idmanager" type="java.lang.Integer">
+            <column name="idmanager" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="euser" class="com.jxust.svsh.entity.Euser" fetch="select">
+            <column name="user_id">
+                <comment>
+                &#185;&#220;&#192;&#237;&#212;&#177;&#212;&#218;&#207;&#181;&#205;&#179;&#214;&#208;&#181;&#196;&#214;&#208;&#181;&#196;&#211;&#195;&#187;&#167;id&#163;&#172;&#185;&#220;&#192;&#237;&#212;&#177;&#163;&#168;&#186;&#243;&#204;&#168;&#163;&#169;&#186;&#205;&#211;&#195;&#187;&#167;&#177;&#237;&#163;&#168;&#199;&#176;&#204;&#168;&#183;&#254;&#206;&#241;&#163;&#169;&#202;&#199;&#182;&#192;&#193;&#162;&#181;&#196;&#161;&#163;</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="organization" class="com.jxust.svsh.entity.Organization" fetch="select">
+            <column name="to_id">
+                <comment>&#203;&#249;&#202;&#244;&#215;&#233;&#214;&#175;</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="role" class="com.jxust.svsh.entity.Role" fetch="select">
+            <column name="role_id">
+                <comment>&#189;&#199;&#201;&#171;&#177;&#237;</comment>
+            </column>
+        </many-to-one>
+        <property name="username" type="string">
+            <column name="username" length="45" unique="true">
+                <comment>&#211;&#195;&#187;&#167;&#207;&#212;&#202;&#190;&#181;&#196;&#195;&#251;&#215;&#214;</comment>
+            </column>
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" not-null="true" unique="true">
+                <comment>&#181;&#199;&#194;&#189;&#202;&#185;&#211;&#195;&#181;&#196;&#211;&#202;&#207;&#228;</comment>
+            </column>
+        </property>
+        <property name="pwdword" type="string">
+            <column name="pwdword" length="45" unique="true">
+                <comment>&#211;&#195;&#187;&#167;&#195;&#220;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="phone" type="string">
+            <column name="phone" length="45">
+                <comment>&#211;&#195;&#187;&#167;&#181;&#196;&#181;&#231;&#187;&#176;</comment>
+            </column>
+        </property>
+        <property name="qq" type="string">
+            <column name="QQ" length="45">
+                <comment>QQ</comment>
+            </column>
+        </property>
+        <property name="realname" type="string">
+            <column name="realname" length="45">
+                <comment>&#213;&#230;&#202;&#181;&#208;&#213;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="UCode" type="string">
+            <column name="u_code" length="45">
+                <comment>&#211;&#195;&#187;&#167;&#188;&#175;&#205;&#197;&#177;&#224;&#186;&#197; &#212;&#177;&#185;&#164;&#177;&#224;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="lastLogin" type="timestamp">
+            <column name="last_login" length="19">
+                <comment>&#215;&#238;&#186;&#243;&#181;&#199;&#194;&#189;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="loginSum" type="java.lang.Integer">
+            <column name="login_sum">
+                <comment>&#181;&#199;&#194;&#189;&#215;&#220;&#180;&#206;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="createTime" type="string">
+            <column name="create_time" length="45">
+                <comment>&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="gender" type="java.lang.Integer">
+            <column name="gender">
+                <comment>&#208;&#212;&#177;&#240; 1 &#206;&#170; &#196;&#208; 0 &#206;&#170;&#197;&#174;</comment>
+            </column>
+        </property>
+        <set name="logms" table="logm" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="manger_id" not-null="true">
+                    <comment>&#178;&#217;&#215;&#247;&#200;&#203;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.Logm" />
+        </set>
+        <set name="informations" table="information" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="manager_id">
+                    <comment>&#185;&#220;&#192;&#237;&#212;&#177;id</comment>
+                </column>
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.Information" />
+        </set>
+        <set name="newses" table="news" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="writer">
+                    <comment>&#183;&#162;&#178;&#188;&#213;&#223;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.News" />
+        </set>
+    </class>
+</hibernate-mapping>

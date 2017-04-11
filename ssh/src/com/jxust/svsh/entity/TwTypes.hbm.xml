@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.TwTypes" table="tw_types" catalog="woemobile_db" optimistic-lock="version">
+        <id name="idTwTypes" type="java.lang.Integer">
+            <column name="id_tw_types" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="45" not-null="true" />
+        </property>
+        <set name="twitters" table="twitter" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tw_type" />
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.Twitter" />
+        </set>
+    </class>
+</hibernate-mapping>

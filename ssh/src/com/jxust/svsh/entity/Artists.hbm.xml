@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.Artists" table="artists" catalog="woemobile_db" optimistic-lock="version">
+        <id name="artistId" type="java.lang.Integer">
+            <column name="artist_id" />
+            <generator class="identity" />
+        </id>
+        <property name="height" type="java.lang.Integer">
+            <column name="height" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="45" />
+        </property>
+        <property name="nameEg" type="string">
+            <column name="name_eg" length="45" />
+        </property>
+        <property name="weight" type="string">
+            <column name="weight" length="45" />
+        </property>
+        <property name="langrange" type="string">
+            <column name="langrange" length="45" />
+        </property>
+        <property name="start" type="string">
+            <column name="start" length="45" />
+        </property>
+        <property name="livePet" type="string">
+            <column name="live_pet" length="45" />
+        </property>
+        <property name="bloodType" type="string">
+            <column name="blood_type" length="45" />
+        </property>
+        <property name="loveToSay" type="string">
+            <column name="love_to_say" length="45" />
+        </property>
+        <property name="job" type="string">
+            <column name="job" length="45" />
+        </property>
+        <property name="company" type="string">
+            <column name="Company" length="45" />
+        </property>
+        <property name="bestHobby" type="string">
+            <column name="best_hobby" length="45" />
+        </property>
+        <property name="worstBobby" type="string">
+            <column name="worst_bobby" length="45" />
+        </property>
+        <property name="birthDate" type="string">
+            <column name="birth_date" length="45" />
+        </property>
+        <property name="bestWish" type="string">
+            <column name="best_wish" length="45" />
+        </property>
+        <property name="hobby" type="string">
+            <column name="hobby" length="45" />
+        </property>
+        <property name="likeColor" type="string">
+            <column name="like_color" length="45" />
+        </property>
+        <property name="likedrink" type="string">
+            <column name="likedrink" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

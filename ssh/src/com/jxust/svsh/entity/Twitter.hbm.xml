@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.Twitter" table="twitter" catalog="woemobile_db" optimistic-lock="version">
+        <id name="twitterId" type="java.lang.Integer">
+            <column name="twitter_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="euser" class="com.jxust.svsh.entity.Euser" fetch="select">
+            <column name="ower_id_twitter">
+                <comment>&#177;&#187;&#198;&#192;&#194;&#219;&#181;&#196;&#208;&#196;&#199;&#233;id</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="twTypes" class="com.jxust.svsh.entity.TwTypes" fetch="select">
+            <column name="tw_type" />
+        </many-to-one>
+        <property name="datatime" type="string">
+            <column name="datatime" length="45" />
+        </property>
+        <property name="detial" type="string">
+            <column name="detial" length="45" not-null="true" />
+        </property>
+        <property name="uid" type="int">
+            <column name="uid" not-null="true" />
+        </property>
+        <property name="targetId" type="java.lang.Integer">
+            <column name="target_id">
+                <comment>
+                &#177;&#187;&#198;&#192;&#194;&#219;&#181;&#196;&#182;&#171;&#206;&#247;&#163;&#172;&#184;&#232;&#199;&#250;&#163;&#172;&#215;&#168;&#188;&#173;&#163;&#172;&#184;&#232;&#202;&#214;&#163;&#172;&#213;&#226;&#208;&#169;&#182;&#171;&#206;&#247;&#161;&#163;</comment>
+            </column>
+        </property>
+        <property name="targetType" type="java.lang.Integer">
+            <column name="target_type" />
+        </property>
+        <property name="pinglunSum" type="java.lang.Integer">
+            <column name="pinglun_sum">
+                <comment>&#198;&#192;&#194;&#219;&#215;&#220;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="zhuangfaSum" type="java.lang.Integer">
+            <column name="zhuangfa_sum">
+                <comment>&#215;&#170;&#183;&#162;&#215;&#220;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="topic" type="string">
+            <column name="topic" length="45">
+                <comment>&#187;&#176;&#204;&#226;</comment>
+            </column>
+        </property>
+        <property name="linked" type="string">
+            <column name="linked" length="600">
+                <comment>&#193;&#180;&#189;&#211; &#210;&#244;&#192;&#214;&#202;&#211;&#198;&#181;&#181;&#200;&#181;&#200;</comment>
+            </column>
+        </property>
+        <property name="loveSum" type="java.lang.Integer">
+            <column name="love_sum">
+                <comment>&#202;&#213;&#178;&#216;&#180;&#206;&#202;&#253;</comment>
+            </column>
+        </property>
+        <set name="twitterLoves" table="twitter_love" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="twitter_id" not-null="true" />
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.TwitterLove" />
+        </set>
+        <set name="twitterComments" table="twitter_comment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="twitter_id" not-null="true" />
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.TwitterComment" />
+        </set>
+    </class>
+</hibernate-mapping>

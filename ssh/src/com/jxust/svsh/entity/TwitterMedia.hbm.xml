@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.TwitterMedia" table="twitter_media" catalog="woemobile_db" optimistic-lock="version">
+        <composite-id name="id" class="com.jxust.svsh.entity.TwitterMediaId">
+            <key-property name="twitterid" type="java.lang.Integer">
+                <column name="twitterid" />
+            </key-property>
+            <key-property name="mediaid" type="java.lang.Integer">
+                <column name="mediaid" />
+            </key-property>
+            <key-property name="mid" type="java.lang.Integer">
+                <column name="mid" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

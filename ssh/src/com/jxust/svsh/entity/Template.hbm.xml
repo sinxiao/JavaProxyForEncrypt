@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.Template" table="template" catalog="woemobile_db" optimistic-lock="version">
+        <id name="idtemplate" type="java.lang.Integer">
+            <column name="idtemplate" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="45">
+                <comment>&#196;&#163;&#176;&#229;&#195;&#251;&#215;&#214;</comment>
+            </column>
+        </property>
+        <property name="content" type="string">
+            <column name="content" length="65535">
+                <comment>&#196;&#163;&#176;&#229;&#196;&#218;&#200;&#221;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

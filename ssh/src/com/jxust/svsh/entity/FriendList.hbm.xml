@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.FriendList" table="friend_list" catalog="woemobile_db" optimistic-lock="version">
+        <id name="idfriendList" type="int">
+            <column name="idfriend_list" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="euser" class="com.jxust.svsh.entity.Euser" fetch="select">
+            <column name="u_id" not-null="true">
+                <comment>&#211;&#195;&#187;&#167;&#177;&#224;&#186;&#197;</comment>
+            </column>
+        </many-to-one>
+        <property name="genTime" type="timestamp">
+            <column name="gen_time" length="19" />
+        </property>
+        <property name="friendListName" type="string">
+            <column name="friend_list_name" length="45">
+                <comment>&#186;&#195;&#211;&#209;&#193;&#208;&#177;&#237;&#181;&#196;&#195;&#251;&#215;&#214;</comment>
+            </column>
+        </property>
+        <set name="friendListUsers" table="friend_list_user" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="group_id" />
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.FriendListUser" />
+        </set>
+    </class>
+</hibernate-mapping>

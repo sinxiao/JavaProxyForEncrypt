@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.Images" table="images" catalog="woemobile_db" optimistic-lock="version">
+        <id name="imageId" type="java.lang.Integer">
+            <column name="image_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="euser" class="com.jxust.svsh.entity.Euser" fetch="select">
+            <column name="uid" />
+        </many-to-one>
+        <many-to-one name="locations" class="com.jxust.svsh.entity.Locations" fetch="select">
+            <column name="location_id" />
+        </many-to-one>
+        <property name="imageSrc" type="string">
+            <column name="image_src" length="200" />
+        </property>
+        <property name="imageOwner" type="java.lang.Integer">
+            <column name="image_owner" />
+        </property>
+        <property name="demo" type="string">
+            <column name="demo" length="65535" />
+        </property>
+        <property name="traceId" type="java.lang.Integer">
+            <column name="trace_id" />
+        </property>
+        <property name="bdata" type="binary">
+            <column name="bdata">
+                <comment>&#202;&#253;&#190;&#221;&#208;&#197;&#207;&#162;</comment>
+            </column>
+        </property>
+        <property name="data1" type="string">
+            <column name="data1" length="450" />
+        </property>
+        <property name="data2" type="string">
+            <column name="data2" length="450" />
+        </property>
+        <property name="rate" type="java.lang.Float">
+            <column name="rate" precision="12" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

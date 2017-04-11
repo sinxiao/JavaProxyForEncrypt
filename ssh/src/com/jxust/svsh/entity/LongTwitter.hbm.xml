@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.LongTwitter" table="long_twitter" catalog="woemobile_db" optimistic-lock="version">
+        <id name="idtwitterDemo" type="int">
+            <column name="idtwitter_demo" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="euser" class="com.jxust.svsh.entity.Euser" fetch="select">
+            <column name="uid" />
+        </many-to-one>
+        <property name="blog" type="string">
+            <column name="blog" length="65535" />
+        </property>
+        <property name="images" type="string">
+            <column name="images" length="65535" />
+        </property>
+        <property name="twitterId" type="java.lang.Integer">
+            <column name="twitter_id" />
+        </property>
+        <property name="title" type="string">
+            <column name="title" length="450" />
+        </property>
+    </class>
+</hibernate-mapping>

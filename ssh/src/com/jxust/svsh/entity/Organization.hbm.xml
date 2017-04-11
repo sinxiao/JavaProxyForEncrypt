@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.Organization" table="organization" catalog="woemobile_db" optimistic-lock="version">
+        <id name="idOrganization" type="java.lang.Integer">
+            <column name="idOrganization" />
+            <generator class="identity" />
+        </id>
+        <property name="parentToId" type="java.lang.Integer">
+            <column name="parent_to_id" />
+        </property>
+        <property name="orgName" type="string">
+            <column name="org_name" length="45">
+                <comment>&#215;&#233;&#214;&#175;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="orgGen" type="timestamp">
+            <column name="org_gen" length="19">
+                <comment>&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="destription" type="string">
+            <column name="destription" length="65535">
+                <comment>&#195;&#232;&#202;&#246;</comment>
+            </column>
+        </property>
+        <set name="managers" table="manager" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="to_id">
+                    <comment>&#203;&#249;&#202;&#244;&#215;&#233;&#214;&#175;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.Manager" />
+        </set>
+    </class>
+</hibernate-mapping>

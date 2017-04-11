@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.Webshare" table="webshare" catalog="woemobile_db" optimistic-lock="version">
+        <id name="idwebshare" type="java.lang.Integer">
+            <column name="idwebshare" />
+            <generator class="identity" />
+        </id>
+        <property name="uid" type="java.lang.Integer">
+            <column name="uid" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" />
+        </property>
+        <property name="header" type="string">
+            <column name="header" />
+        </property>
+        <property name="url" type="string">
+            <column name="url" />
+        </property>
+        <property name="ishow" type="java.lang.Integer">
+            <column name="ishow" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.Traces" table="traces" catalog="woemobile_db" optimistic-lock="version">
+        <id name="idtraces" type="java.lang.Integer">
+            <column name="idtraces" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="euser" class="com.jxust.svsh.entity.Euser" fetch="select">
+            <column name="uid" />
+        </many-to-one>
+        <property name="traceName" type="string">
+            <column name="trace_name" length="45" not-null="true" />
+        </property>
+        <property name="buildTime" type="string">
+            <column name="build_time" length="45" />
+        </property>
+        <property name="endTime" type="string">
+            <column name="end_time" length="45" />
+        </property>
+        <property name="demo" type="string">
+            <column name="demo" length="65535" />
+        </property>
+        <property name="data1" type="string">
+            <column name="data1" length="450" />
+        </property>
+        <property name="data2" type="string">
+            <column name="data2" length="450" />
+        </property>
+        <set name="locationses" table="locations" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="trace_id" />
+            </key>
+            <one-to-many class="com.jxust.svsh.entity.Locations" />
+        </set>
+    </class>
+</hibernate-mapping>

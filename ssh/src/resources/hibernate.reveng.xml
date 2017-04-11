@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="woemobile_db" match-name="albums"/>
+  <table-filter match-catalog="woemobile_db" match-name="artists"/>
+  <table-filter match-catalog="woemobile_db" match-name="count-statis"/>
+  <table-filter match-catalog="woemobile_db" match-name="euser"/>
+  <table-filter match-catalog="woemobile_db" match-name="euser_detail"/>
+  <table-filter match-catalog="woemobile_db" match-name="friend_list"/>
+  <table-filter match-catalog="woemobile_db" match-name="friend_list_user"/>
+  <table-filter match-catalog="woemobile_db" match-name="images"/>
+  <table-filter match-catalog="woemobile_db" match-name="information"/>
+  <table-filter match-catalog="woemobile_db" match-name="item"/>
+  <table-filter match-catalog="woemobile_db" match-name="locations"/>
+  <table-filter match-catalog="woemobile_db" match-name="logm"/>
+  <table-filter match-catalog="woemobile_db" match-name="long_twitter"/>
+  <table-filter match-catalog="woemobile_db" match-name="manager"/>
+  <table-filter match-catalog="woemobile_db" match-name="media"/>
+  <table-filter match-catalog="woemobile_db" match-name="message"/>
+  <table-filter match-catalog="woemobile_db" match-name="music_src"/>
+  <table-filter match-catalog="woemobile_db" match-name="musics"/>
+  <table-filter match-catalog="woemobile_db" match-name="news"/>
+  <table-filter match-catalog="woemobile_db" match-name="news_comment"/>
+  <table-filter match-catalog="woemobile_db" match-name="organization"/>
+  <table-filter match-catalog="woemobile_db" match-name="rights"/>
+  <table-filter match-catalog="woemobile_db" match-name="role"/>
+  <table-filter match-catalog="woemobile_db" match-name="rolerightreltion"/>
+  <table-filter match-catalog="woemobile_db" match-name="tag-relation"/>
+  <table-filter match-catalog="woemobile_db" match-name="tags"/>
+  <table-filter match-catalog="woemobile_db" match-name="template"/>
+  <table-filter match-catalog="woemobile_db" match-name="traces"/>
+  <table-filter match-catalog="woemobile_db" match-name="tw_types"/>
+  <table-filter match-catalog="woemobile_db" match-name="twitter"/>
+  <table-filter match-catalog="woemobile_db" match-name="twitter_comment"/>
+  <table-filter match-catalog="woemobile_db" match-name="twitter_love"/>
+  <table-filter match-catalog="woemobile_db" match-name="twitter_media"/>
+  <table-filter match-catalog="woemobile_db" match-name="webshare"/>
+</hibernate-reverse-engineering>

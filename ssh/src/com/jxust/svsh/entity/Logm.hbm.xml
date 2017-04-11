@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.Logm" table="logm" catalog="woemobile_db" optimistic-lock="version">
+        <id name="idLogM" type="java.lang.Integer">
+            <column name="idLogM" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="manager" class="com.jxust.svsh.entity.Manager" fetch="select">
+            <column name="manger_id" not-null="true">
+                <comment>&#178;&#217;&#215;&#247;&#200;&#203;</comment>
+            </column>
+        </many-to-one>
+        <property name="opType" type="java.lang.Integer">
+            <column name="op_type">
+                <comment>&#178;&#217;&#215;&#247;&#192;&#224;&#208;&#205;</comment>
+            </column>
+        </property>
+        <property name="content" type="string">
+            <column name="content" length="450">
+                <comment>&#178;&#217;&#215;&#247;&#196;&#218;&#200;&#221;</comment>
+            </column>
+        </property>
+        <property name="genTime" type="timestamp">
+            <column name="gen_time" length="19">
+                <comment>&#178;&#217;&#215;&#247;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

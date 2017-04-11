@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.FriendListUser" table="friend_list_user" catalog="woemobile_db" optimistic-lock="version">
+        <id name="idfriendListUser" type="java.lang.Integer">
+            <column name="idfriend_list_user" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="euser" class="com.jxust.svsh.entity.Euser" fetch="select">
+            <column name="uid" />
+        </many-to-one>
+        <many-to-one name="friendList" class="com.jxust.svsh.entity.FriendList" fetch="select">
+            <column name="group_id" />
+        </many-to-one>
+        <property name="backName" type="string">
+            <column name="back_name" length="100" />
+        </property>
+        <property name="friendListId" type="java.lang.Integer">
+            <column name="friend_list_id" />
+        </property>
+    </class>
+</hibernate-mapping>

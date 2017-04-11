@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 10:04:37 by Hibernate Tools 5.1.2.Final -->
+<hibernate-mapping>
+    <class name="com.jxust.svsh.entity.Media" table="media" catalog="woemobile_db" optimistic-lock="version">
+        <id name="mid" type="int">
+            <column name="mid" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="euser" class="com.jxust.svsh.entity.Euser" fetch="select">
+            <column name="uid" />
+        </many-to-one>
+        <property name="url" type="string">
+            <column name="url" />
+        </property>
+        <property name="filename" type="string">
+            <column name="filename" />
+        </property>
+        <property name="width" type="string">
+            <column name="width" length="45" />
+        </property>
+        <property name="height" type="string">
+            <column name="height" length="45" />
+        </property>
+        <property name="isShow" type="java.lang.Integer">
+            <column name="is_show" />
+        </property>
+        <property name="data" type="binary">
+            <column name="data">
+                <comment>&#215;&#238;&#180;&#243;16M&#181;&#196;&#205;&#188;&#198;&#172;or &#202;&#211;&#198;&#181;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>
