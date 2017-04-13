@@ -97,7 +97,7 @@ public class EuserHome {
 	public Euser findById(java.lang.Integer id) {
 		log.debug("getting Euser instance with id: " + id);
 		try {
-			Euser instance = (Euser) sessionFactory.getCurrentSession().get("com.jxust.svsh.dao.Euser", id);
+			Euser instance = (Euser) sessionFactory.getCurrentSession().get("com.jxust.svsh.entity.Euser", id);
 			if (instance == null) {
 				log.debug("get successful, no instance found");
 			} else {
@@ -114,7 +114,7 @@ public class EuserHome {
 		log.debug("finding Euser instance by example");
 		try {
 			List<Euser> results = (List<Euser>) sessionFactory.getCurrentSession()
-					.createCriteria("com.jxust.svsh.dao.Euser").add(create(instance)).list();
+					.createCriteria("com.jxust.svsh.entity.Euser").add(create(instance)).list();
 			log.debug("find by example successful, result size: " + results.size());
 			return results;
 		} catch (RuntimeException re) {
