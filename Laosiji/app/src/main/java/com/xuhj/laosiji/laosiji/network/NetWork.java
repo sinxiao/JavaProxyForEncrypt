@@ -20,6 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class NetWork {
 	private static NetWork netWork;
 	private static LaosijiApi laosijiApi;
+	private static SSMAPI ssmapi;
 	private static OkHttpClient mClient;
 	private NetWork(){
 
@@ -63,6 +64,20 @@ public class NetWork {
 			laosijiApi = retrofit.create(LaosijiApi.class);
 		}
 		return laosijiApi;
+	}
+
+	public static SSMAPI getSsmapi()
+	{
+		if(ssmapi==null){
+			Retrofit retrofit = new Retrofit.Builder().client(mClient)
+					.baseUrl(Configer.LAOSIJI_UEL)
+					.addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+					.addConverterFactory(GsonConverterFactory.create())
+					.build();
+			ssmapi = retrofit.create(SSMAPI.class);
+		}
+
+		return ssmapi;
 	}
 
 }
