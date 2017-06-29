@@ -5,6 +5,10 @@ import com.xuhj.laosiji.laosiji.common.Configer;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import javax.inject.Singleton;
+
+import dagger.Module;
+import dagger.Provides;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -16,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Created by xuhj on 2017/4/12.
  */
-
+@Module
 public class NetWork {
 	private static NetWork netWork;
 	private static LaosijiApi laosijiApi;
@@ -66,7 +70,9 @@ public class NetWork {
 		return laosijiApi;
 	}
 
-	public static SSMAPI getSsmapi()
+	@Singleton
+	@Provides
+	public static SSMAPI provideSsmapi()
 	{
 		if(ssmapi==null){
 			Retrofit retrofit = new Retrofit.Builder().client(mClient)
